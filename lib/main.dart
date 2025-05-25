@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,12 +8,57 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const Color deepNavyBlue = Color(0xFF20264F); // Define deepNavyBlue
+
     return MaterialApp(
-      title: 'Numerology App',
+      title: 'DigitZ',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // Define the default brightness and colors.
+        brightness: Brightness.light,
+        primarySwatch: Colors.grey, // Use grey as the base, then customize
+        scaffoldBackgroundColor: Colors.grey[100], // Soft beige background
+
+        // Define the default font family.
+        fontFamily: 'Roboto',
+
+        // Customize the TextTheme to use Roboto and Montserrat
+        textTheme: const TextTheme(
+          headlineLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold, color: Colors.black87, fontFamily: 'Roboto'),
+          headlineSmall: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic, color: Colors.black87, fontFamily: 'Roboto'),
+          bodyMedium: TextStyle(fontSize: 14.0, fontFamily: 'Montserrat', color: Colors.black87),
+          bodyLarge: TextStyle(fontSize: 16.0, fontFamily: 'Montserrat', color: Colors.black87),
+          labelLarge: TextStyle(fontFamily: 'Roboto', color: Colors.white),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: deepNavyBlue,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Colors.grey[200],
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          titleTextStyle: const TextStyle(
+            color: Colors.black87,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w600,
+          ),
+          iconTheme: const IconThemeData(color: Colors.black87),
+        ),
+        iconTheme: const IconThemeData(color: deepNavyBlue), // Line-style icons
       ),
-      home: MainMenu(),
+      home: SplashScreen(),
     );
   }
 }
@@ -231,9 +277,9 @@ class _DateOfBirthCalculatorState extends State<DateOfBirthCalculator> {
               },
             ),
             SizedBox(height: 20),
-            Text('Mulank/Driver Number: $mulank', style: TextStyle(fontSize: 20)),
+            Text('Mulank: $mulank', style: TextStyle(fontSize: 20)),
             SizedBox(height: 10),
-            Text('Bhagyank/Conductor Number: $bhagyank', style: TextStyle(fontSize: 20)),
+            Text('Bhagyank: $bhagyank', style: TextStyle(fontSize: 20)),
           ],
         ),
       ),

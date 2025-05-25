@@ -24,10 +24,12 @@ android {
         applicationId = "com.example.myapp"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion 19;
+        minSdk = 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        android.experimentalProperties["android.ndk.suppressMinSdkVersionError"] = 21
     }
 
     buildTypes {
